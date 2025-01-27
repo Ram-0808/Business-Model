@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Coach - Slot Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(to right, #0078d7, #339af0);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        header h2 {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: linear-gradient(to right, #004d99, #002d66);
+            padding: 15px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        nav a {
+            position: relative;
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            font-size: 16px;
+            margin: 0 10px;
+            border-radius: 50px;
+            background: linear-gradient(to right, #0078d7, #339af0);
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav a::before, nav a::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50px;
+            transform: scaleX(0);
+            transform-origin: left;
+            z-index: -1;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        nav a::before {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        nav a::after {
+            background: linear-gradient(to right, #339af0, #0078d7);
+        }
+
+        nav a:hover::before {
+            transform: scaleX(1);
+        }
+
+        nav a:hover::after {
+            transform: scaleX(1);
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        nav a:active {
+            transform: scale(0.95);
+        }
+
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-section {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: linear-gradient(to bottom, #e3f2fd, #ffffff);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-size: 16px;
+            color: #0056b3;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        input, select, textarea, button {
+            padding: 12px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        .slot-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .slot {
+            flex: 1 1 calc(33.333% - 10px);
+            padding: 15px;
+            text-align: center;
+            background-color: #e6f7ff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .slot:hover {
+            background-color: #0078d7;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .slot input {
+            display: none;
+        }
+
+        .slot.selected {
+            background-color: #339af0;
+            color: white;
+        }
+
+        button {
+            background: #0078d7;
+            color: white;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        footer {
+            background: linear-gradient(to right, #0078d7, #0056b3);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>S3 Sports Management</h1>
+        <h2>"Where passion meets performance, champions are made"</h2>
+    </header>
+
+    <nav>
+        <a href="./website.html">Home</a>
+        <a href="./About Us.html">About Us</a>
+        <a href="./Book a Coach.html">Book A Coach</a>
+        <a href="./Our Services.html">Our Services</a>
+        <a href="./List of sports.HTML">List of Sports</a>
+        <a href="./Contact us.html">Contact</a>
+        <a href="./List of coaches.html">Coaches</a>
+        <a href="./ Coach Registration.html">Coach Registration</a>
+    </nav>
+    <main>
+        <form action="submit_booking.php" method="POST">
+            <!-- Contact Information -->
+            <div class="form-section">
+                <label for="contactName">Contact Name:</label>
+                <input type="text" id="contactName" name="contactName" placeholder="Enter your name" required>
+
+                <label for="contactNumber">Contact Number:</label>
+                <input type="tel" id="contactNumber" name="contactNumber" placeholder="Enter your contact number" required>
+
+                <label for="email">Email ID:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+            </div>
+
+            <!-- Location -->
+            <div class="form-section">
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" placeholder="Your location will be detected automatically" required>
+            </div>
+
+            <!-- Select Sport -->
+            <div class="form-section">
+                <label for="sport">Select Sport:</label>
+                <select id="sport" name="sport" required>
+                    <option value="" disabled selected>Select a sport</option>
+                    <option value="Cricket">Cricket</option>
+                    <option value="Badminton">Badminton</option>
+                    <option value="Football">Football</option>
+                    <option value="Swimming">Swimming</option>
+                    <option value="Hockey">Hockey</option>
+                    <option value="Tennis">Tennis</option>
+                    <option value="Basketball">Basketball</option>
+                    <option value="Volleyball">Volleyball</option>
+                    <option value="Kabaddi">Kabaddi</option>
+                    <option value="Table Tennis">Table Tennis</option>
+                    <option value="Athletics">Athletics</option>
+                    <option value="Cycling">Cycling</option>
+                    <option value="Squash">Squash</option>
+                    <option value="Shooting">Shooting</option>
+                    <option value="Boxing">Boxing</option>
+                    <option value="Wrestling">Wrestling</option>
+                    <option value="Gymnastics">Gymnastics</option>
+                    <option value="Martial Arts">Martial Arts</option>
+                    <option value="Archery">Archery</option>
+                    <option value="Chess">Chess</option>
+                    <option value="Yoga">Yoga</option>
+                </select>
+            </div>
+
+            <!-- Level of Player -->
+            <div class="form-section">
+                <label for="playerLevel">Player Level:</label>
+                <select id="playerLevel" name="playerLevel" required>
+                    <option value="" disabled selected>Select level</option>
+                    <option value="New">New</option>
+                    <option value="Basic">Basic</option>
+                    <option value="Advanced">Advanced</option>
+                    <option value="Professional">Professional</option>
+                </select>
+            </div>
+        <div class="form-group">
+            <label for="date">Select Date:</label>
+            <input type="date" id="date" required>
+        </div>
+
+            <!-- Slot Selection -->
+            <label>Select Time Slot:</label>
+            <div class="slot-section">
+                <!-- Time Slots from 5:00 AM to 10:00 PM -->
+                <label class="slot">
+                    <input type="radio" name="timeSlot" value="5:00 AM - 6:00 AM" required>
+                    5:00 AM - 6:00 AM
+                </label>
+                <label class="slot">
+                    <input type="radio" name="timeSlot" value="6:00 AM - 7:00 AM">
+                    6:00 AM - 7:00 AM
+                </label>
+                <label class="slot">
+                    <input type="radio" name="timeSlot" value="7:00 AM - 8:00 AM">
+                    7:00 AM - 8:00 AM
+                </label>
+                <label class="slot">
+                    <input type="radio" name="timeSlot" value="8:00 AM - 9:00 AM">
+                    8:00 AM - 9:00 AM
+                </label>
+                <label class="slot">
+                    <input type="radio" name="timeSlot" value="9:00 AM - 10:00 AM">
+                    9:00 AM - 10:00 AM
+                </label>
+                <label class="slot">
+                    <input type="radio" name="timeSlot" value="10:00 AM - 11:00 AM">
+                    10:00 AM - 11:00 AM
+                </label>
+                <label class="slot">
+                    <input type="radio" name="timeSlot" value="11:00 AM - 12:00 PM">
+                    11:00 AM - 12:00 PM
+                </label>
+                <label class="slot">
+                    <input type="radio" name="timeSlot" value="12:00 PM - 1:00 PM">
+                    12:00 PM - 1:00 PM
+                </label>
+                <label class="slot">
+                    <input type="radio" name="timeSlot" value="1:00 PM - 2:00 PM">
+                    1:00 PM - 2:00 PM
+                </label>
+                <label class="slot">
+                    <input type="radio" name="timeSlot" value="2:00 PM - 3:00 PM">
+                    2:00 PM - 3:00 PM
+                </label>
+                <label class="slot">
+                    <input type="radio" name="timeSlot" value="3:00 PM - 4:00 PM">
+                    3:00 PM - 4:00 PM
+                </label>
+                <label class="slot">
+                    <input type="radio" name="timeSlot" value="4:00 PM - 5:00 PM">
+                    4:00 PM - 5:00 PM
+                </label>
+                <label class="slot">
+                    <input type="radio" name="timeSlot" value="5:00 PM - 6:00 PM">
+                    5:00 PM - 6:00 PM
+                </label>
+                <label class="slot">
+                    <input type="radio" name="timeSlot" value="6:00 PM - 7:00 PM">
+                    6:00 PM - 7:00 PM
+                </label>
+                <label class="slot">
+                    <input type="radio" name="timeSlot" value="7:00 PM - 8:00 PM">
+                    7:00 PM - 8:00 PM
+                </label>
+                <label class="slot">
+                    <input type="radio" name="timeSlot" value="8:00 PM - 9:00 PM">
+                    8:00 PM - 9:00 PM
+                </label>
+                <label class="slot">
+                    <input type="radio" name="timeSlot" value="9:00 PM - 10:00 PM">
+                    9:00 PM - 10:00 PM
+                </label>
+            </div>
+
+            <!-- Additional Information -->
+            <label for="additionalInfo">Additional Information:</label>
+            <textarea id="additionalInfo" name="additionalInfo" rows="4" placeholder="Provide any additional requirements or preferences"></textarea>
+
+            <button type="submit">Book Now</
+
+```html
+            </button>
+        </form>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 S3 Sports Management. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Slot Selection Highlighting
+        const slots = document.querySelectorAll('.slot');
+        slots.forEach(slot => {
+            slot.addEventListener('click', () => {
+                slots.forEach(s => s.classList.remove('selected'));
+                slot.classList.add('selected');
+            });
+        });
+    </script>
+</body>
+</html>

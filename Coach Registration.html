@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Coach - Slot Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(to right, #0078d7, #339af0);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 48px; /* Larger size for title */
+            margin: 0;
+        }
+
+        header h2 {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: linear-gradient(to right, #0056b3, #003d80);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            animation: slideIn 1s ease-in-out;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            font-size: 18px;
+            margin: 0 10px;
+            border-radius: 50px; /* Rounded button-like design */
+            background: linear-gradient(to right, #0078d7, #339af0);
+            transition: transform 0.3s, background 0.3s, color 0.3s ease;
+        }
+
+        nav a:hover {
+            transform: scale(1.1);
+            background: linear-gradient(to right, #339af0, #0078d7);
+            color: #fff;
+        }
+
+        nav a:active {
+            transform: scale(0.95);
+        }
+
+        .corner-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(to right, #ff6b6b, #ff5252);
+            color: white;
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: background 0.3s ease, transform 0.3s;
+        }
+
+        .corner-button:hover {
+            background: linear-gradient(to right, #ff5252, #ff6b6b);
+            transform: translateY(-3px);
+        }
+
+        .corner-button:active {
+            transform: scale(0.95);
+        }
+
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-section {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: linear-gradient(to bottom, #e3f2fd, #ffffff);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-size: 20px; /* Larger font size */
+            color: #0056b3;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        input, select, textarea, button {
+            padding: 14px;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        .slot-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .slot {
+            flex: 1 1 calc(33.333% - 10px);
+            padding: 15px;
+            text-align: center;
+            background-color: #e6f7ff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .slot:hover {
+            background-color: #0078d7;
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .slot.selected {
+            background-color: #339af0;
+            color: white;
+        }
+
+        button {
+            background: linear-gradient(to right, #0078d7, #339af0);
+            color: white;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 50px; /* Rounded buttons */
+            transition: background 0.3s ease, transform 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #339af0, #0078d7);
+            transform: translateY(-3px);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            width: 300px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .card h3 {
+            color: #004d99;
+        }
+        .contact-form {
+            margin: 0 auto;
+            max-width: 500px;
+        }
+        .contact-form input, .contact-form textarea, .contact-form button {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        footer {
+            text-align: center;
+            background-color: #004d99;
+            color: white;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>S3 Sports Management</h1>
+        <h2>'' Where passion meets performance, champions are made''</h2>
+       
+    </header>
+    <nav>
+        <a href="./website.html">Home</a>
+        <a href="./About Us.html">About Us</a>
+        <a href="./Book a Coach.html">Book A Coach</a>
+        <a href="./Our Services.html">Our Services</a>
+        <a href="./List of sports.HTML">List of Sports</a>
+        <a href="./Contact us.html">Contact</a>
+        <a href="./List of coaches.html">Coaches</a>
+        <a href="./ Coach Registration.html">Coach Registration</a>
+    </nav>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coach Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(to right, #0078d7, #339af0);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        label {
+            font-size: 16px;
+            color: #0078d7;
+        }
+
+        input, select, textarea, button {
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        button {
+            background: #0078d7;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .photo-section {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .photo-section button {
+            background: #339af0;
+        }
+
+        .webcam-preview {
+            margin-top: 10px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .webcam-preview video {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 5px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(to right, #0078d7, #0056b3);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Coach Registration Form</h1>
+    </header>
+    <main>
+        <form action="submit_coach_form.php" method="POST" enctype="multipart/form-data">
+            <!-- Full Name -->
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" name="fullName" placeholder="Enter full name" required>
+
+            <!-- Contact Information -->
+            <label for="contact">Contact Number:</label>
+            <input type="tel" id="contact" name="contact" placeholder="Enter contact number" required>
+
+            <label for="altContact">Alternate Contact Number:</label>
+            <input type="tel" id="altContact" name="altContact" placeholder="Enter alternate contact number">
+
+            <label for="email">Email ID:</label>
+            <input type="email" id="email" name="email" placeholder="Enter email address" required>
+
+            <!-- Photo Upload Section -->
+            <div class="photo-section">
+                <label>Upload Photo:</label>
+                <input type="file" id="photoUpload" name="photoUpload" accept="image/*">
+
+                <label>Or Capture Photo:</label>
+                <button type="button" id="openCamera">Open Camera</button>
+                <div class="webcam-preview" id="webcamPreview">
+                    <video id="webcam" autoplay></video>
+                    <button type="button" id="capturePhoto">Capture</button>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <label for="education">Education:</label>
+            <select id="education" name="education" required>
+                <option value="" disabled selected>Select your highest education level</option>
+                <option value="Secondary School">Secondary School</option>
+                <option value="College">College</option>
+                <option value="Degree">Degree</option>
+                <option value="Post Graduation">Post Graduation</option>
+                <option value="PhD">PhD</option>
+            </select>
+
+            <!-- Player Level -->
+            <label for="playerLevel">As a Player, What Is Your Highest Level?</label>
+            <input type="text" id="playerLevel" name="playerLevel" placeholder="E.g., National, International, State">
+
+            <!-- Coaching Experience -->
+            <label for="experience">Coaching Experience (Number of Years):</label>
+            <select id="experience" name="experience" required>
+                <option value="" disabled selected>Select years of experience</option>
+                <option value="1">1 Year</option>
+                <option value="2">2 Years</option>
+                <option value="3">3 Years</option>
+                <option value="4">4 Years</option>
+                <option value="5">5+ Years</option>
+            </select>
+
+            <!-- Certifications -->
+            <label for="certifications">Certifications in Coaching:</label>
+            <input type="file" id="certifications" name="certifications" accept="application/pdf,image/*">
+
+            <!-- Previous Work Experience -->
+            <label for="workExperience">Previous Work Experience:</label>
+            <textarea id="workExperience" name="workExperience" placeholder="Briefly describe your previous experience"></textarea>
+
+            <!-- About Section -->
+            <label for="about">About You:</label>
+            <textarea id="about" name="about" placeholder="Write a short description about yourself"></textarea>
+
+            <!-- Additional Information -->
+            <label for="additionalInfo">Other Information:</label>
+            <textarea id="additionalInfo" name="additionalInfo" placeholder="Provide any other relevant information"></textarea>
+
+            <!-- Submit Button -->
+            <button type="submit">Register</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2025 S3 Sports Management. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const openCameraBtn = document.getElementById('openCamera');
+        const webcamPreview = document.getElementById('webcamPreview');
+        const webcam = document.getElementById('webcam');
+        const capturePhotoBtn = document.getElementById('capturePhoto');
+
+        openCameraBtn.addEventListener('click', () => {
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(stream => {
+                    webcam.srcObject = stream;
+                    webcamPreview.style.display = 'flex';
+                })
+                .catch(err => {
+                    alert('Error accessing camera: ' + err.message);
+                });
+        });
+
+        capturePhotoBtn.addEventListener('click', () => {
+            alert('Photo captured! Feature under construction.');
+        });
+    </script>
+</body>
+</html>

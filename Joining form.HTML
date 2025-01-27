@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joining Form - S3 Sports Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(to right, #0078d7, #339af0);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-size: 48px;
+            margin: 0;
+        }
+
+        header h2 {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+        .corner-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(to right, #ff6b6b, #ff5252);
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .corner-button:hover {
+            background: linear-gradient(to right, #ff5252, #ff6b6b);
+            transform: translateY(-3px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: linear-gradient(to right, #004d99, #002d66);
+            padding: 15px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        nav a {
+            position: relative;
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            font-size: 18px;
+            margin: 0 10px;
+            border-radius: 50px;
+            background: linear-gradient(to right, #0078d7, #339af0);
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav a::before, nav a::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50px;
+            transform: scaleX(0);
+            transform-origin: left;
+            z-index: -1;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        nav a::before {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        nav a::after {
+            background: linear-gradient(to right, #339af0, #0078d7);
+        }
+
+        nav a:hover::before {
+            transform: scaleX(1);
+        }
+
+        nav a:hover::after {
+            transform: scaleX(1);
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        nav a:active {
+            transform: scale(0.95);
+        }
+
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-size: 16px;
+            color: #0056b3;
+        }
+
+        input, select, textarea {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        input[type="checkbox"] {
+            width: auto;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        button {
+            background: linear-gradient(to right, #0078d7, #339af0);
+            color: white;
+            padding: 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #339af0, #0078d7);
+            transform: translateY(-3px);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        footer {
+            background: linear-gradient(to right, #0078d7, #0056b3);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>S3 Sports Management</h1>
+        <h2>"Where passion meets performance, champions are made"</h2>
+    </header>
+
+    <nav>
+        <a href="./website.html">Home</a>
+        <a href="./About Us.html">About Us</a>
+        <a href="./Book a Coach.html">Book A Coach</a>
+        <a href="./Our Services.html">Our Services</a>
+        <a href="./List of sports.HTML">List of Sports</a>
+        <a href="./Contact us.html">Contact</a>
+        <a href="./List of coaches.html">Coaches</a>
+        <a href="./ Coach Registration.html">Coach Registration</a>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <form action="submit_form.php" method="POST">
+            <label for="contactName">Name of Contact Person:</label>
+            <input type="text" id="contactName" name="contactName" placeholder="Enter contact person's name" required>
+
+            <label for="contactNumber">Contact Number:</label>
+            <input type="tel" id="contactNumber" name="contactNumber" placeholder="Enter contact number" required>
+
+            <label for="email">Email ID:</label>
+            <input type="email" id="email" name="email" placeholder="Enter email address" required>
+
+            <label for="organizationName">Organization Name:</label>
+            <input type="text" id="organizationName" name="organizationName" placeholder="Enter organization name" required>
+
+            <label for="orgType">Type of Organization:</label>
+            <select id="orgType" name="orgType" required>
+                <option value="" disabled selected>Select type</option>
+                <option value="School">School</option>
+                <option value="College">College</option>
+                <option value="Gated Community">Gated Community</option>
+            </select>
+
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" placeholder="Your location will be detected automatically" required>
+
+            <label>Available Sports (Check all that apply):</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="sports[]" value="Cricket"> Cricket</label>
+                <label><input type="checkbox" name="sports[]" value="Badminton"> Badminton</label>
+                <label><input type="checkbox" name="sports[]" value="Football"> Football</label>
+                <label><input type="checkbox" name="sports[]" value="Swimming"> Swimming</label>
+                <label><input type="checkbox" name="sports[]" value="Hockey"> Hockey</label>
+                <label><input type="checkbox" name="sports[]" value="Tennis"> Tennis</label>
+                <label><input type="checkbox" name="sports[]" value="Basketball"> Basketball</label>
+                <label><input type="checkbox" name="sports[]" value="Volleyball"> Volleyball</label>
+                <label><input type="checkbox" name="sports[]" value="Kabaddi"> Kabaddi</label>
+                <label><input type="checkbox" name="sports[]" value="Table Tennis"> Table Tennis</label>
+                <label><input type="checkbox" name="sports[]" value="Athletics"> Athletics</label>
+                <label><input type="checkbox" name="sports[]" value="Cycling"> Cycling</label>
+
+                <!-- Emerging Sports -->
+                <label><input type="checkbox" name="sports[]" value="Squash"> Squash</label>
+                <label><input type="checkbox" name="sports[]" value="Shooting"> Shooting</label>
+                <label><input type="checkbox" name="sports[]" value="Boxing"> Boxing</label>
+                <label><input type="checkbox" name="sports[]" value="Wrestling"> Wrestling</label>
+                <label><input type="checkbox" name="sports[]" value="Gymnastics"> Gymnastics</label>
+                <label><input type="checkbox" name="sports[]" value="Martial Arts"> Martial Arts</label>
+                <label><input type="checkbox" name="sports[]" value="Archery"> Archery</label>
+                <label><input type="checkbox" name="sports[]" value="Chess"> Chess</label>
+                <label><input type="checkbox" name="sports[]" value="Yoga"> Yoga</label>
+
+                <!-- Traditional Sports -->
+                <label><input type="checkbox" name="sports[]" value="Kho-Kho"> Kho-Kho</label>
+                <label><input type="checkbox" name="sports[]" value="Lagori"> Lagori</label>
+                <label><input type="checkbox" name="sports[]" value="Mallakhamb"> Mallakhamb</label>
+                <label><input type="checkbox" name="sports[]" value="Gilli-Danda"> Gilli-Danda</label>
+
+                <!-- Adventure and Water Sports -->
+                <label><input type="checkbox" name="sports[]" value="Kayaking"> Kayaking</label>
+                <label><input type="checkbox" name="sports[]" value="Canoeing"> Canoeing</label>
+                <label><input type="checkbox" name="sports[]" value="Surfing"> Surfing</label>
+                <label><input type="checkbox" name="sports[]" value="Rock Climbing"> Rock Climbing</label>
+            </div>
+
+            <!-- Size of Organization -->
+            <label for="orgSize">Size of Organization (Approximate Number of Students):</label>
+            <input type="number" id="orgSize" name="orgSize" placeholder="Enter size of organization" required>
+
+            <!-- Number of Branches -->
+            <label for="branches">Number of Branches:</label>
+            <input type="number" id="branches" name="branches" placeholder="Enter number of branches" required>
+
+            <!-- Number of Classes per Week -->
+            <label for="classesPerWeek">How Many Classes Per Week (For Each Sport):</label>
+            <input type="number" id="classesPerWeek" name="classesPerWeek" placeholder="Enter number of classes needed" required>
+
+            <!-- Additional Information -->
+            <label for="additionalInfo">Any Additional Information:</label>
+            <textarea id="additionalInfo" name="additionalInfo" rows="4" placeholder="Provide any other relevant information"></textarea>
+ <!-- Submit Button -->
+ <button type="submit">Submit</button>
+</form>
+</main>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 S3 Sports Management. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

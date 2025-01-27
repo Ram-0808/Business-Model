@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Sports - Andhra Pradesh</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(to right, #0078d7, #339af0);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: linear-gradient(to right, #004d99, #002d66);
+            padding: 15px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        nav a {
+            position: relative;
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            font-size: 16px;
+            margin: 0 10px;
+            border-radius: 50px;
+            background: linear-gradient(to right, #0078d7, #339af0);
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        nav a::before, nav a::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50px;
+            transform: scaleX(0);
+            transform-origin: left;
+            z-index: -1;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        nav a::before {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        nav a::after {
+            background: linear-gradient(to right, #339af0, #0078d7);
+        }
+
+        nav a:hover::before {
+            transform: scaleX(1);
+        }
+
+        nav a:hover::after {
+            transform: scaleX(1);
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        nav a:active {
+            transform: scale(0.95);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        main h2 {
+            text-align: center;
+            color: #0078d7;
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+
+        .sports-section {
+            margin-bottom: 40px;
+        }
+
+        .sports-section h3 {
+            color: #0056b3;
+            font-size: 22px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #0078d7;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .sports-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .sports-list li {
+            background: linear-gradient(to bottom, #e3f2fd, #ffffff);
+            border-radius: 10px;
+            padding: 15px 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .sports-list li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            background: linear-gradient(to right, #0078d7, #0056b3);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>S3 Sports Management</h1>
+        <h2>"Where passion meets performance, champions are made"</h2>
+    </header>
+
+    <nav>
+        <a href="./website.html">Home</a>
+        <a href="./About Us.html">About Us</a>
+        <a href="./Book a Coach.html">Book A Coach</a>
+        <a href="./Our Services.html">Our Services</a>
+        <a href="./List of sports.HTML">List of Sports</a>
+        <a href="./Contact us.html">Contact</a>
+        <a href="./List of coaches.html">Coaches</a>
+        <a href="./ Coach Registration.html">Coach Registration</a>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <h2>Sports Available in Andhra Pradesh</h2>
+
+        <!-- Mainstream Sports Section -->
+        <div class="sports-section">
+            <h3>Mainstream Sports</h3>
+            <ul class="sports-list">
+                <li>Cricket</li>
+                <li>Badminton</li>
+                <li>Football</li>
+                <li>Hockey</li>
+                <li>Tennis</li>
+                <li>Athletics</li>
+                <li>Basketball</li>
+                <li>Volleyball</li>
+                <li>Kabaddi</li>
+                <li>Table Tennis</li>
+                <li>Swimming</li>
+                <li>Cycling</li>
+            </ul>
+        </div>
+
+        <!-- Emerging and Niche Sports Section -->
+        <div class="sports-section">
+            <h3>Emerging and Niche Sports</h3>
+            <ul class="sports-list">
+                <li>Squash</li>
+                <li>Shooting</li>
+                <li>Boxing</li>
+                <li>Wrestling</li>
+                <li>Martial Arts</li>
+                <li>Gymnastics</li>
+                <li>Archery</li>
+                <li>Weightlifting</li>
+                <li>Chess</li>
+                <li>Rowing</li>
+                <li>Fencing</li>
+                <li>Yoga</li>
+            </ul>
+        </div>
+
+        <!-- Traditional Sports Section -->
+        <div class="sports-section">
+            <h3>Traditional Sports</h3>
+            <ul class="sports-list">
+                <li>Kho-Kho</li>
+                <li>Lagori (Seven Stones)</li>
+                <li>Mallakhamb</li>
+                <li>Gilli-Danda</li>
+                <li>Kabaddi</li>
+                <li>Pachisi (Ludo)</li>
+            </ul>
+        </div>
+
+        <!-- Adventure and Water Sports Section -->
+        <div class="sports-section">
+            <h3>Adventure and Water Sports</h3>
+            <ul class="sports-list">
+                <li>Kayaking</li>
+                <li>Canoeing</li>
+                <li>Surfing</li>
+                <li>Scuba Diving</li>
+                <li>Sailing</li>
+                <li>Rock Climbing</li>
+                <li>Trekking</li>
+            </ul>
+        </div>
+
+        <!-- Rural and Indigenous Sports Section -->
+        <div class="sports-section">
+            <h3>Rural and Indigenous Sports</h3>
+            <ul class="sports-list">
+                <li>Bullock Cart Racing</li>
+                <li>Villu Pattu</li>
+                <li>Kite Flying Competitions</li>
+            </ul>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 S3 Sports Management. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

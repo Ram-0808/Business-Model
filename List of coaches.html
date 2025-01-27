@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registered Coaches - S3 Sports Management</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(to right, #0078d7, #339af0);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        header h2 {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: center;
+            background: linear-gradient(to right, #004d99, #002d66);
+            padding: 15px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        nav a {
+            position: relative;
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            font-size: 16px;
+            margin: 0 10px;
+            border-radius: 50px;
+            background: linear-gradient(to right, #0078d7, #339af0);
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        nav a::before, nav a::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50px;
+            transform: scaleX(0);
+            transform-origin: left;
+            z-index: -1;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        nav a::before {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        nav a::after {
+            background: linear-gradient(to right, #339af0, #0078d7);
+        }
+
+        nav a:hover::before {
+            transform: scaleX(1);
+        }
+
+        nav a:hover::after {
+            transform: scaleX(1);
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        nav a:active {
+            transform: scale(0.95);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        main h2 {
+            text-align: center;
+            color: #0078d7;
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+
+        /* Coaches Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 16px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: zoomIn 0.8s ease;
+        }
+
+        table thead {
+            background: #0078d7;
+            color: white;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+        }
+
+        table th {
+            font-weight: bold;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table tr:hover {
+            background-color: #f1f1f1;
+            transform: scale(1.01);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .coach-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, #0078d7, #0056b3);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>S3 Sports Management</h1>
+        <h2>"Where passion meets performance, champions are made"</h2>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="./website.html">Home</a>
+        <a href="./About Us.html">About Us</a>
+        <a href="./Book a Coach.html">Book A Coach</a>
+        <a href="./Our Services.html">Our Services</a>
+        <a href="./List of sports.HTML">List of Sports</a>
+        <a href="./Contact us.html">Contact</a>
+        <a href="./List of coaches.html">Coaches</a>
+        <a href="./ Coach Registration.html">Coach Registration</a>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <h2>List of Registered Coaches</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Photo</th>
+                    <th>Name</th>
+                    <th>Sport</th>
+                    <th>Coaching Experience</th>
+                    <th>Certification Level</th>
+                    <th>Player Level</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img src="./images/coach1.png" alt="Coach 1" class="coach-photo"></td>
+                    <td>Priya Nair</td>
+                    <td>Badminton</td>
+                    <td>10 years</td>
+                    <td>Level 3 Certified</td>
+                    <td>Advanced</td>
+                </tr>
+                <tr>
+                    <td><img src="./images/coach2.png" alt="Coach 2" class="coach-photo"></td>
+                    <td>Rajesh Kumar</td>
+                    <td>Swimming</td>
+                    <td>8 years</td>
+                    <td>Level 2 Certified</td>
+                    <td>Professional</td>
+                </tr>
+                <tr>
+                    <td><img src="./images/coach3.png" alt="Coach 3" class="coach-photo"></td>
+                    <td>Ananya Sharma</td>
+                    <td>Cricket</td>
+                    <td>15 years</td>
+                    <td>Level 1 Certified</td>
+                    <td>Intermediate</td>
+                </tr>
+                <tr>
+                    <td><img src="./images/coach4.png" alt="Coach 4" class="coach-photo"></td>
+                    <td>Karan Patel</td>
+                    <td>Football</td>
+                    <td>5 years</td>
+                    <td>Level 2 Certified</td>
+                    <td>Advanced</td>
+                </tr>
+                <tr>
+                    <td><img src="./images/coach5.png" alt="Coach 5" class="coach-photo"></td>
+                    <td>Rohit Desai</td>
+                    <td>Basketball</td>
+                    <td>12 years</td>
+                    <td>Level 3 Certified</td>
+                    <td>Professional</td>
+                </tr>
+                <tr>
+                    <td><img src="./images/coach6.png" alt="Coach 6" class="coach-photo"></td>
+                    <td>Sarah White</td>
+                    <td>Hockey</td>
+                    <td>7 years</td>
+                    <td>Level 2 Certified</td>
+                    <td>Advanced</td>
+                </tr>
+                <tr>
+                    <td><img src="./images/coach7.png" alt="Coach 7" class="coach-photo"></td>
+                    <td>Arjun Mehra</td>
+                    <td>Volleyball</td>
+                    <td>9 years</td>
+                    <td>Level 3 Certified</td>
+                    <td>Professional</td>
+                </tr>
+                <tr>
+                    <td><img src="./images/coach8.png" alt="Coach 8" class="coach-photo"></td>
+                    <td>Patricia Lee</td>
+                    <td>Tennis</td>
+                    <td>6 years</td>
+                    <td>Level 1 Certified</td>
+                    <td>Intermediate</td>
+                </tr>
+                <tr>
+                    <td><img src="./images/coach9.png" alt="Coach 9" class="coach-photo"></td>
+                    <td>David Harris</td>
+                    <td>Chess</td>
+                    <td>11 years</td>
+                    <td>Level 3 Certified</td>
+                    <td>Advanced</td>
+                </tr>
+                <tr>
+                    <td><img src="./images/coach10.png" alt="Coach 10" class="coach-photo"></td>
+                    <td>Linda Moore</td>
+                    <td>Yoga</td>
+                    <td>8 years</td>
+                    <td>Level 2 Certified</td>
+                    <td>Professional</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 S3 Sports Management. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
